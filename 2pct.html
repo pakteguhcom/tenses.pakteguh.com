@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tenses</title>
+
+<script>
+
+	function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+	function onDeviceReady(){
+		// Page
+		localStorage.pageID = 1;
+		
+		// Back Button
+		document.addEventListener("backbutton", onBackKeyDown, false);
+	}
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="onLoad()" data-state="1" >
+
+<div id="header">
+
+<div id="headbox"><h2>16 TENSES</h2>
+</div>
+</div>
+
+<div id="home">
+
+<ul id="homemenu">
+
+ 
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+ 
+ <center>
+ <br>
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+   <h3>Present Continuous Tense </h3>
+   <hr color="#006600">
+   <!--** isi content ** -->
+   <p>Adalah sebuah tenses yang  digunakan untuk menyatakan suatu tindakan perbuatan atau peristiwa <em>yang memang benar benar tejadi saat ini</em>.</p>
+   <p>Ketika seseorang mengatakan “saya  sedang berdiri” maka saat orang tersebut mengatakannya saat itu juga perbuatan  atau tindakannya sedang berlangsung.</p>
+   <p><br>
+       <strong>Struktur kalimatnya:</strong><br>
+     (+)  S + Tobe Present (am, is, are) + Verb 1 + ing + O/C<br>
+     (-)  S + Tobe Present (am, is, are)+ Not + Verb 1 + ing + O/C<br>
+     (?)  Tobe Present (am, is, are) + S + Verb 1 + ing + O/C?<br>
+     Yes,  S + Tobe Present (am, is, are)<br>
+     No,  S + Tobe Present (am, is, are) + not</p>
+   <p><br>
+       <em>Contoh:</em><br>
+     (+) Dia (lk) sedang menulis   surat sekarang.<br>
+     He is  writing letter  now.</p>
+   <p>(-) Dia (lk)  tidak sedang menulis   surat sekarang.            <br>
+     He is not writing letter now.</p>
+   <p>(?)Apakah Dia (lk) sedang menulis surat  sekarang?<br>
+     Is he writing letter now?<br>
+     Yes,  I am<br>
+     No,  I am not</p>
+   <p>&nbsp;</p>
+   <p><strong>Time Signal of Present Continuous Tense</strong><br>
+     Now = sekarang<br>
+     Right now = sekarang ini, sekarang juga<br>
+     At present = pada waktu ini, sekarang ini<br>
+     At this moment = pada saat ini<br>
+     Today = hari ini<br>
+     This morning = pagi ini<br>
+     This afternoon = sore ini<br>
+     This evening = malam ini<br>
+     Tonight = nanti malam, mala mini<br>
+     Tomorrow = besok<br>
+     Next week = minggu depan<br>
+     Next month = bulan depan<br>
+     Next year = tahun depan<br>
+     Look ! = lihat !<br>
+     Listen ! = dengar !<br>
+     Still = masih<br>
+     Soon = segera </p>
+   <hr color="#006600">
+   <p>&nbsp;</p>
+ </div>
+ <center>
+ </center>
+ <h3>&nbsp;</h3>
+ <!--** isi content ** -->
+
+
+</div>
+ </div>
+ 
+
+<div id="single" style="display:none;">
+
+</div>
+     
+       
+<div id="goback" style="display:none;" ><div class="navigasi"><img src="images/icon-home.png" /></div></div>
+
+
+
+<script>
+
+	$('#homemenu li').click(function(){
+		var hal = $(this).attr('data-hal');
+		
+		$.ajax({url: hal,
+			success: function(data){
+				$("#home").hide();
+				$("#isi").html(data);
+				$("#single").show();
+				$("#goback").show();
+				$("#exit").show();
+				$('body').attr('data-state', '2');
+			}
+		});
+	});
+	
+	$('#goback').click(function(){
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+	});
+	
+	// Back Button
+	function onBackKeyDown(){
+		var dstate = $('body').attr('data-state');
+				
+		if(dstate == '2'){
+			$('body').attr('data-state', '1');
+			$("#single").hide();
+			$("#goback").hide();
+			$("#exit").hide();
+			$("#home").show();			
+		}
+		
+		if(dstate == '1'){
+			exitAppPopup();
+		}
+    }
+	
+	// Exit
+	function exitAppPopup(){
+        navigator.notification.confirm(
+            'Tutup aplikasi?'
+            , function(button){
+                  if(button == 2) {
+                      navigator.app.exitApp();
+                  }
+              }
+            , 'Keluar'
+            , 'Batal,Ya'
+        );  
+        return false;
+    }
+
+	$('body').hammer().on("tap", ".backbtn", function(event){
+		
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+		
+		$('body').attr('data-state', '1');
+		
+	});
+
+</script>
+  <center>  <div class="footer"><a href="index.html"><img src="images/icon-home.png" /> </a></div></center>    
+</body>
+</html>
+	

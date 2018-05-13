@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tenses</title>
+
+<script>
+
+	function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+	function onDeviceReady(){
+		// Page
+		localStorage.pageID = 1;
+		
+		// Back Button
+		document.addEventListener("backbutton", onBackKeyDown, false);
+	}
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="onLoad()" data-state="1" >
+
+<div id="header">
+
+<div id="headbox"><h2>16 TENSES</h2>
+</div>
+</div>
+
+<div id="home">
+
+<ul id="homemenu">
+
+ 
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+ 
+ <center>
+ <br>
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+   <h3>Simple Past Tense </strong></h3>
+   <!--** isi content ** -->
+   <hr color="#006600">
+   <p>Simple past tense adalah sebuah tenses yang  digunakan untuk menyatakan sebuah kejadian atau peristiwa <em>yang telah dilakukan pada masa lampau</em>, dalam bentuk ini tidak ada  hubungannya sama sekali dengan kejadian saat ini.<strong></strong><br>
+       <strong>Struktur kalimatnya  ada 2 macam yaitu:</strong></p>
+   <p><span dir="LTR"></span><strong>Nominal (menggunakan selain kata kerja; yaitu menggunakan kata sifat,  kata benda, dan kata keterangan)</strong></p>
+   <p>Strukturnya :<br>
+     (+)  S + Tobe Past (was, were) + kata sifat /kata benda/kata keterangan<br>
+     (-)  S + Tobe Past (was, were)+ Not + kata sifat /kata benda/kata keterangan<br>
+     (?)  Tobe Past (was, were) + S + kata sifat /kata benda/kata keterangan?<br>
+     Yes,  S + Tobe Past (was, were)<br>
+     No,  S + Tobe Past (was, were) + not</p>
+   <p><br>
+       <strong><em>Catatan:</em></strong><br>
+     Was       = I<br>
+     Were      = You, We, They<br>
+     Was       = He, She, It<br>
+     Kata  sifat : contoh; beautiful,  handsome, bad dan lain sebagainya<br>
+     Kata  benda : contoh; Pilot,  President, student dan lain sebagainya<br>
+     Kata  keterangan : contoh; Here, at morning,  in mosque dan lain sebagainya</p>
+   <p><br>
+       <em>Contoh:</em><br>
+     (+)Kamu disini kemarin.<br>
+     You  were here yesterday.</p>
+   <p><br>
+     (-)  Kamu tidak disini kemarin.<br>
+     You were  not here yesterday.</p>
+   <p><br>
+     (?) Apakah kamu  disini  kemarin?<br>
+     Were you here yesterday?         <br>
+     Yes, you were<br>
+     No, you were not </p>
+   </li>
+   </ol>
+   <div align="left"><strong>Verbal (menggunakan kata  kerja)</strong></div>
+   </li>
+   </ol>
+   <p>(+)  S + Verb 2 + O/C<br>
+     (-)  S + did+ not + Verb 1 + O/C<br>
+     (?)  Did + S + Verb 1 + O/C?<br>
+     Yes,  S + did<br>
+     No,  S + did +not</p>
+   <p><br>
+       <strong><em>Catatan: </em></strong><br>
+     Verb 1: go</p>
+   <p>verb 2 : went</p>
+   <p>verb 3 : gone </p>
+   <p><strong><em>&nbsp;</em></strong></p>
+   <p><em>Contoh:</em><br>
+     (+)  Saya pergi ke rumah paman saya minggu lalu.<br>
+     I wen to my uncle’s house last week.</p>
+   <p><br>
+     (-)  Saya tidak pergi ke rumah paman  saya minggu lalu.<br>
+     I  did  not  go   to  my uncle’s house last week.</p>
+   <p><br>
+     (?)  Apakah Saya  pergi ke  rumah paman saya minggu lalu.        <br>
+     Did I  go to my uncle’s house last week.<br>
+     Yes, I did<br>
+     No, I did not</p>
+   <p><strong>Time Signal of Simple Past Tense </strong><br>
+     Yesterday = kemarin<br>
+     Yesterday morning = kemarin pagi<br>
+     Last night = semalam, tadi malam<br>
+     Last week = pekan lalu<br>
+     Last Sunday = minggu lalu<br>
+     Last….. =………lalu<br>
+     An hour ago = sejam yang lalu<br>
+     Two hours ago = 2 jam yang lalu<br>
+     ……………..ago = …………..lalu<br>
+     In 1978 = pada th 1978<br>
+     The day before yesterday= kemarin dulu/ lusa<br>
+     On Sunday morning = pada hari Minggu</p>
+   <hr color="#006600">
+   <p>&nbsp;</p>
+ </div>
+ <center>
+ </center>
+ <h3>&nbsp;</h3>
+ <!--** isi content ** -->
+
+
+</div>
+ </div>
+ 
+
+<div id="single" style="display:none;">
+
+</div>
+     
+       
+<div id="goback" style="display:none;" ><div class="navigasi"><img src="images/icon-home.png" /></div></div>
+
+
+
+<script>
+
+	$('#homemenu li').click(function(){
+		var hal = $(this).attr('data-hal');
+		
+		$.ajax({url: hal,
+			success: function(data){
+				$("#home").hide();
+				$("#isi").html(data);
+				$("#single").show();
+				$("#goback").show();
+				$("#exit").show();
+				$('body').attr('data-state', '2');
+			}
+		});
+	});
+	
+	$('#goback').click(function(){
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+	});
+	
+	// Back Button
+	function onBackKeyDown(){
+		var dstate = $('body').attr('data-state');
+				
+		if(dstate == '2'){
+			$('body').attr('data-state', '1');
+			$("#single").hide();
+			$("#goback").hide();
+			$("#exit").hide();
+			$("#home").show();			
+		}
+		
+		if(dstate == '1'){
+			exitAppPopup();
+		}
+    }
+	
+	// Exit
+	function exitAppPopup(){
+        navigator.notification.confirm(
+            'Tutup aplikasi?'
+            , function(button){
+                  if(button == 2) {
+                      navigator.app.exitApp();
+                  }
+              }
+            , 'Keluar'
+            , 'Batal,Ya'
+        );  
+        return false;
+    }
+
+	$('body').hammer().on("tap", ".backbtn", function(event){
+		
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+		
+		$('body').attr('data-state', '1');
+		
+	});
+
+</script>
+  <center>  <div class="footer"><a href="index.html"><img src="images/icon-home.png" /> </a></div></center>    
+</body>
+</html>
+	

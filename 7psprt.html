@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tenses</title>
+
+<script>
+
+	function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+	function onDeviceReady(){
+		// Page
+		localStorage.pageID = 1;
+		
+		// Back Button
+		document.addEventListener("backbutton", onBackKeyDown, false);
+	}
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="onLoad()" data-state="1" >
+
+<div id="header">
+
+<div id="headbox"><h2>16 TENSES</h2>
+</div>
+</div>
+
+<div id="home">
+
+<ul id="homemenu">
+
+ 
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+ 
+ <center>
+ <br>
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+   <h3>Past Perfect Tense </strong></h3>
+   <hr color="#006600">
+   <!--** isi content ** -->
+   <p>Adalah suatu tenses yang digunakan untuk menyatakan suatu tindakan  suatu perbuatan atau peristiwa yang baru saja terjadi pada waktu lampau,  biasanya dalam kejadian ini terdapat kejadian lain, dimana kalimat pada past  perfect tense telah terjadi terlebih dahulu dari pada kejadian yang lain  tersebut. </p>
+   <p>Jika dalam kalimat verbal perbuatannya <em>sudah selesai</em> dikejakan (baru  saja) ketika kejadian lain berlangsung.</p>
+   <p>Jika dalam kalimat nominal maka kejadiannya <em>sudah dimulai waktu lampau  namun hingga kejadian lain berlangsung </em>masih terus berlangsung atau masih ada,  sebagai contoh ketika seeorang mengucapkan kalimat “saya sudah cantik” maka  saat ia mengucapkan kalimat tersebut <em>cantiknya</em> masih tetap ada.</p>
+   <p><br>
+       <strong>Struktur kalimatnya ada 2 macam</strong>: </p>
+   <div align="left">
+     <p><strong>Kalimat verbal</strong></p>
+   </div>
+   <p>Strukturnya: <br>
+     (+) S + had +  Verb 3 + O/C + when + Rumus Simple Past Tense<br>
+     (-) S + had + not  + Verb 3 + O/C + when + Rumus Simple Past Tense<br>
+     (?)Had + S + Verb  3 + O/C + when + Rumus Simple Past Tense? <br>
+     Yes, S + had<br>
+     No, S + had + not</p>
+   <p><br>
+       <strong>Catatan:</strong></p>
+   <p>Ada 2 jenis verb yaitu: </p>
+   <p><strong>Irregular Verb</strong> ( verb 1, verb 2, verb 3 tidak beraturan)<br>
+     Verb 1 : eat</p>
+   <p>Verb 2 : ate</p>
+   <p>verb 3 : eaten</p>
+   <p><br>
+       <strong>Regular Verb </strong>( verb 1, verb 2, verb 3 beraturan dengan  menambah “ed” di akhir kata verb 2 dan verb 3)<br>
+     Verb 1 : play</p>
+   <p>Verb 2 : played</p>
+   <p>verb 3 : played </p>
+   <p><br>
+       <em>contoh:</em><br>
+     (+) Rudi sudah  minum jus  apel ketika Riska datang  kemarin.<br>
+     Rudi had drunk apple juice when Riska came yesterday.</p>
+   <p><br>
+     (-)Rudi belum minum jus  apel ketika Riska datang  kemarin.<br>
+     Rudi   had not   drunk  apple juice when Riska came yesterday.</p>
+   <p>(?)Apakah Rudi sudah minum jus  apel ketika Riska datang  kemarin?<br>
+     Had Rudi drunk apple juice when Riska came yesterday?<br>
+     Yes,  He had<br>
+     No,  He had not</p>
+   <p>&nbsp;</p>
+   <p><strong>Kalimat Nominal</strong>
+       </li>
+       </ol>
+   </p>
+   <p>Strukturnya:<br>
+     (+) S + had + been + kata sifat /kata benda/kata keterangan + when +  Rumus Simple Past Tense<br>
+     (-) S + had + not + been + kata sifat /kata benda/kata keterangan +  when + Rumus Simple Past Tense <br>
+     (?)Had + S + been + kata sifat /kata benda/kata keterangan+ when +  Rumus Simple Past Tense?<br>
+     Yes, S + had<br>
+     No, S + had</p>
+   <p><em>Contoh:</em><br>
+     (+) Tatik sudah  cantik  ketika pacarnya menjemputnya kemarin.<br>
+     Tatik had  been beautiful when her boyfriend picked her yesterday.</p>
+   <p><br>
+     (-)Tatik sudah cantik  ketika pacarnya menjemputnya kemarin.<br>
+     Tatik  had not been beautiful when  her boyfriend picked her yesterday.</p>
+   <p><br>
+     (?)Apakah Tatik sudah cantik ketika  pacarnya menjemputnya kemarin.<br>
+     Had Tatik been beautiful  when  her boyfriend picked her  yesterday?<br>
+     Yes, I had<br>
+     No, I had not</p>
+   <p>&nbsp;</p>
+   <p><strong>Time Signal of Past Perfect Tense</strong><br>
+     Past pefect…..before…….past tense<br>
+     Past tense……after……..past perfect<br>
+     Past tense., past perfect……before<br>
+     Past tense ……until…… past perfect<br>
+     Past tense….. as soon as… past perfect<br>
+     Past perfect…… when……. Past tense</p>
+   <hr color="#006600">
+ </div>
+ <center>
+ </center>
+ <h3>&nbsp;</h3>
+ <!--** isi content ** -->
+
+
+</div>
+ </div>
+ 
+
+<div id="single" style="display:none;">
+
+</div>
+     
+       
+<div id="goback" style="display:none;" ><div class="navigasi"><img src="images/icon-home.png" /></div></div>
+
+
+
+<script>
+
+	$('#homemenu li').click(function(){
+		var hal = $(this).attr('data-hal');
+		
+		$.ajax({url: hal,
+			success: function(data){
+				$("#home").hide();
+				$("#isi").html(data);
+				$("#single").show();
+				$("#goback").show();
+				$("#exit").show();
+				$('body').attr('data-state', '2');
+			}
+		});
+	});
+	
+	$('#goback').click(function(){
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+	});
+	
+	// Back Button
+	function onBackKeyDown(){
+		var dstate = $('body').attr('data-state');
+				
+		if(dstate == '2'){
+			$('body').attr('data-state', '1');
+			$("#single").hide();
+			$("#goback").hide();
+			$("#exit").hide();
+			$("#home").show();			
+		}
+		
+		if(dstate == '1'){
+			exitAppPopup();
+		}
+    }
+	
+	// Exit
+	function exitAppPopup(){
+        navigator.notification.confirm(
+            'Tutup aplikasi?'
+            , function(button){
+                  if(button == 2) {
+                      navigator.app.exitApp();
+                  }
+              }
+            , 'Keluar'
+            , 'Batal,Ya'
+        );  
+        return false;
+    }
+
+	$('body').hammer().on("tap", ".backbtn", function(event){
+		
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+		
+		$('body').attr('data-state', '1');
+		
+	});
+
+</script>
+  <center>  <div class="footer"><a href="index.html"><img src="images/icon-home.png" /> </a></div></center>    
+</body>
+</html>
+	

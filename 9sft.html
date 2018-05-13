@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tenses</title>
+
+<script>
+
+	function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+	function onDeviceReady(){
+		// Page
+		localStorage.pageID = 1;
+		
+		// Back Button
+		document.addEventListener("backbutton", onBackKeyDown, false);
+	}
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="onLoad()" data-state="1" >
+
+<div id="header">
+
+<div id="headbox"><h2>16 TENSES</h2>
+</div>
+</div>
+
+<div id="home">
+
+<ul id="homemenu">
+
+ 
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+ 
+ <center>
+ <br>
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+   <h3>Simple Future Tense</h3>
+   <hr color="#006600">
+   <!--** isi content ** -->
+   <p>Simple future tense adalah sebuah tenses yang  digunakan untuk menyatakan sebuah kejadian atau peristiwa <em>yang akan dilakukan pada waktu yang akan datang.</em></p>
+   <p><br>
+       <strong>Struktur kalimatnya  ada 2 macam yaitu:</strong></p>
+   <p><strong>Nominal (menggunakan selain kata kerja; yaitu menggunakan kata sifat,  kata benda, dan kata keterangan)</strong></p>
+   <p>Strukturnya :<br>
+     (+)  S + shall/will + Be + kata sifat /kata benda/kata keterangan<br>
+     (-)S  + shall/will + not + Be + kata sifat /kata benda/kata keterangan<br>
+     (?)Shall/Will + S + Be + kata sifat /kata benda/kata  keterangan?<br>
+     Yes,  S + Shall/Will <br>
+     No,  S + Shall/Will + not</p>
+   <p><br>
+       <strong><em>Catatan:</em></strong><br>
+     Shall        = I,We<br>
+     Will         = You, They, He, She, It</p>
+   <p>Kata  sifat : contoh; beautiful,  handsome, bad dan lain sebagainya<br>
+     Kata  benda : contoh; Pilot,  President, student dan lain sebagainya<br>
+     Kata  keterangan : contoh; Here, at morning,  in mosque dan lain sebagainya</p>
+   <p><br>
+       <em>Contoh:</em><br>
+     (+)Dia (pr) akan  di  sekolah besok pagi.<br>
+     She  will  be in the school tomorrow morning.</p>
+   <p><br>
+     (-)Dia (pr) tidak akan di  sekolah besok pagi.<br>
+     She will  not be  in  the school tomorrow morning.</p>
+   <p><br>
+     (?)Apakah dia (pr) akan di sekolah besok pagi?<br>
+     will She be  in  the school tomorrow morning?<br>
+     Yes, She will<br>
+     No, She will not</p>
+   <p><strong>Verbal (menggunakan kata  kerja)</strong></p>
+   <p>(+)  S + shall/will + Verb 1 + O/C<br>
+     (-)  S + shall/will + not + Verb 1 + O/C<br>
+     (?)Shall/Will  + S + Verb 1 + O/C?<br>
+     Yes,  S + Shall/Will <br>
+     No,  S + Shall/Will + not</p>
+   <p><em>Contoh:</em><br>
+     (+)  Saya akan menulis sebuah surat untuk  ibuku besok selasa.<br>
+     I will write a  letter  for my mom tomorrow  Tuesday.</p>
+   <p><br>
+     (-)Saya tidak akan menulis sebuah surat untuk  ibuku besok selasa.<br>
+     I  will  not  write a letter for  my mom tomorrow Tuesday.</p>
+   <p><br>
+     (?) Apakah saya akan menulis  sebuah surat untuk ibuku besok selasa?<br>
+     will I write a letter  for  my mom tomorrow Tuesday?<br>
+     Yes, She will<br>
+     No, She will not</p>
+   <p>&nbsp;</p>
+   <p><strong>Time Signal Of Simple Future Tense</strong><br>
+     Tomorrow = besok<br>
+     Next week = minggu depan<br>
+     Next month = bulan depan<br>
+     Next year = tahun depan<br>
+     This morning = pagi ini<br>
+     This evening = mala mini<br>
+     Tonight = mala mini, nanti malam<br>
+     Soon = segera<br>
+     In a few weeks = dalam beberapa minggu<br>
+     If = jika<br>
+     When/ while = ketika<br>
+     Before = sebelum<br>
+     After = sesudah<br>
+     As soon as = segera setelah<br>
+     Till = hingga , sampai<br>
+     Until = hingga, sampai</p>
+   <hr color="#006600">
+   <p>&nbsp;</p>
+ </div>
+ <center>
+ </center>
+ <h3>&nbsp;</h3>
+ <!--** isi content ** -->
+
+</div>
+
+</div>
+ 
+
+<div id="single" style="display:none;">
+
+</div>
+     
+       
+<div id="goback" style="display:none;" ><div class="navigasi"><img src="images/icon-home.png" /></div></div>
+
+
+
+<script>
+
+	$('#homemenu li').click(function(){
+		var hal = $(this).attr('data-hal');
+		
+		$.ajax({url: hal,
+			success: function(data){
+				$("#home").hide();
+				$("#isi").html(data);
+				$("#single").show();
+				$("#goback").show();
+				$("#exit").show();
+				$('body').attr('data-state', '2');
+			}
+		});
+	});
+	
+	$('#goback').click(function(){
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+	});
+	
+	// Back Button
+	function onBackKeyDown(){
+		var dstate = $('body').attr('data-state');
+				
+		if(dstate == '2'){
+			$('body').attr('data-state', '1');
+			$("#single").hide();
+			$("#goback").hide();
+			$("#exit").hide();
+			$("#home").show();			
+		}
+		
+		if(dstate == '1'){
+			exitAppPopup();
+		}
+    }
+	
+	// Exit
+	function exitAppPopup(){
+        navigator.notification.confirm(
+            'Tutup aplikasi?'
+            , function(button){
+                  if(button == 2) {
+                      navigator.app.exitApp();
+                  }
+              }
+            , 'Keluar'
+            , 'Batal,Ya'
+        );  
+        return false;
+    }
+
+	$('body').hammer().on("tap", ".backbtn", function(event){
+		
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+		
+		$('body').attr('data-state', '1');
+		
+	});
+
+</script>
+  <center>  <div class="footer"><a href="index.html"><img src="images/icon-home.png" /> </a></div></center>    
+</body>
+</html>
+	

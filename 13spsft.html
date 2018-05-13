@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tenses</title>
+
+<script>
+
+	function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+	function onDeviceReady(){
+		// Page
+		localStorage.pageID = 1;
+		
+		// Back Button
+		document.addEventListener("backbutton", onBackKeyDown, false);
+	}
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="onLoad()" data-state="1" >
+
+<div id="header">
+
+<div id="headbox"><h2>16 TENSES</h2>
+</div>
+</div>
+
+<div id="home">
+
+<ul id="homemenu">
+
+ 
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+ 
+ <center>
+ <br>
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+   <h3>Simple Past Future Tense</h3>
+   <hr color="#006600">
+   <!--** isi content ** -->
+   <p>Simple past future tense adalah  sebuah tenses yang digunakan untuk menyatakan sebuah kejadian atau peristiwa <em>yang akan dilakukan pada waktu lampau.</em> Dalam peristiwa ini kejadianya tidak/belum dilakukan. Sebagai contoh dalam  kalimat “kemarin dia (pr) akan datang ke rumahku karena hari itu hujan” (dalam  kalimat ini adalah sebuah cerita ulang yang sebenarnya “dia” tidak datang  kerumah hanya sebuah rencana saja namun tidak dilakukan).</p>
+   <p><br>
+       <strong>Struktur kalimatnya ada 2 macam yaitu:</strong></p>
+   <p><strong>Nominal (menggunakan selain kata kerja; yaitu menggunakan kata sifat,  kata benda, dan kata keterangan)</strong>
+       </li>
+       </ol>
+   </p>
+   <p>Strukturnya :<br>
+     (+) S + should/would + Be + kata sifat /kata  benda/kata keterangan<br>
+     (-)S + should/would + not + Be + kata sifat /kata  benda/kata keterangan<br>
+     (?)Should/Would  + S + Be + kata sifat /kata benda/kata keterangan?<br>
+     Yes, S + should/would<br>
+     No, S + should/would + not</p>
+   <p><br>
+       <strong><em>Catatan:</em></strong><br>
+     Should  = I,We<br>
+     Would  = You,  They, He, She, It</p>
+   <p>Kata sifat :  contoh; beautiful, handsome, bad dan lain sebagainya<br>
+     Kata benda :  contoh; Pilot, President, student dan lain sebagainya<br>
+     Kata keterangan :  contoh; Here, at morning, in mosque dan lain sebagainya</p>
+   <p><br>
+       <em>Contoh:</em><br>
+     (+)Rudi akan disini minggu lalu namun  dia harus pergi  ke rumah ibunya.<br>
+     Rudi would be here last  week but he had to go to his mother’s home.</p>
+   <p><br>
+     (-) Rudi  tidak akan  disini minggu lalu karena  dia harus pergi  ke rumah ibunya.<br>
+     Rudi would not be here last  week because he had to go to  his mother’s home.</p>
+   <p><br>
+     (?)Apakah Rudi  akan     disini      minggu lalu?<br>
+     Would Rudi  be           here      last week?<br>
+     Yes, he would<br>
+     No, he woul not</p>
+   <p><strong>Verbal (menggunakan kata  kerja)</strong></p>
+   <p>(+) S + should/would + Verb 1 + O/C<br>
+     (-) S + should/would + not + Verb  1 + O/C<br>
+     (?)Should/Would + S + Verb 1 +  O/C?<br>
+     Yes, S + should/would <br>
+     No, S + should/would + not</p>
+   <p><em>Contoh:</em><br>
+     (+)Kemarin dia  (pr) akan datang ke rumahku karena hari itu hujan.<br>
+     Yesterday she would come to my house because the day was raining.</p>
+   <p><br>
+     (-)Kemarin dia (pr) tidak akan datang ke rumahku karena hari itu hujan.<br>
+     Yesterday she would come to my house because the day was raining.</p>
+   <p><br>
+     (?) Apakah dia  (pr) akan datang ke rumahku karena hari itu hujan kemarin?<br>
+     would  she come to my house because the day  was raining yesterday?<br>
+     Yes, She would<br>
+     No, She would not</p>
+   <hr color="#006600">
+   <p>&nbsp;</p>
+ </div>
+ <center>
+ </center>
+ <h3>&nbsp;</h3>
+ <!--** isi content ** -->
+
+</div>
+</div>
+ 
+
+<div id="single" style="display:none;">
+
+</div>
+     
+       
+<div id="goback" style="display:none;" ><div class="navigasi"><img src="images/icon-home.png" /></div></div>
+
+
+
+<script>
+
+	$('#homemenu li').click(function(){
+		var hal = $(this).attr('data-hal');
+		
+		$.ajax({url: hal,
+			success: function(data){
+				$("#home").hide();
+				$("#isi").html(data);
+				$("#single").show();
+				$("#goback").show();
+				$("#exit").show();
+				$('body').attr('data-state', '2');
+			}
+		});
+	});
+	
+	$('#goback').click(function(){
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+	});
+	
+	// Back Button
+	function onBackKeyDown(){
+		var dstate = $('body').attr('data-state');
+				
+		if(dstate == '2'){
+			$('body').attr('data-state', '1');
+			$("#single").hide();
+			$("#goback").hide();
+			$("#exit").hide();
+			$("#home").show();			
+		}
+		
+		if(dstate == '1'){
+			exitAppPopup();
+		}
+    }
+	
+	// Exit
+	function exitAppPopup(){
+        navigator.notification.confirm(
+            'Tutup aplikasi?'
+            , function(button){
+                  if(button == 2) {
+                      navigator.app.exitApp();
+                  }
+              }
+            , 'Keluar'
+            , 'Batal,Ya'
+        );  
+        return false;
+    }
+
+	$('body').hammer().on("tap", ".backbtn", function(event){
+		
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+		
+		$('body').attr('data-state', '1');
+		
+	});
+
+</script>
+  <center>  <div class="footer"><a href="index.html"><img src="images/icon-home.png" /> </a></div></center>    
+</body>
+</html>
+	

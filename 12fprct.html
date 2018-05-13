@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tenses</title>
+
+<script>
+
+	function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+	function onDeviceReady(){
+		// Page
+		localStorage.pageID = 1;
+		
+		// Back Button
+		document.addEventListener("backbutton", onBackKeyDown, false);
+	}
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="onLoad()" data-state="1" >
+
+<div id="header">
+
+<div id="headbox"><h2>16 TENSES</h2>
+</div>
+</div>
+
+<div id="home">
+
+<ul id="homemenu">
+
+ 
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+ 
+ <center>
+ <br>
+ <div align="center" style="padding-left:4px; padding-right:4px; color:#000">
+   <h3>Future Perfect Continuous Tense</h3>
+   <hr color="#006600">
+   <!--** isi content ** -->
+   <p>Adalah suatu tenses yang digunakan untk menyatakan  suatu tindakan suatu perbuatan atau peristiwa yang akan selesai dikerjakan pada  waktu yang akan datang tetapi kemungkinan akan dilanjutkan pada waktu yang akan  datang. Sebagai contoh “Rina Akan sudah bekerja di perusahaan itu minggu depan” <em>(seolah olah Rina telah masuk  diperusahaan dan akan melanjutkan pekerjaannya hingga waktu yang tidak  ditentukan).</em></p>
+   <p><br>
+       <strong>Struktur kalimatnya</strong>:<br>
+     (+) S + shall/will + have + been + Verb 1 + ing + O/C<br>
+     (-) S + shall/will +  not + have + been + Verb 1 + ing + O/C<br>
+     (?)Shall/Will + S  +  have + been + Verb 1 + ing + O/C?<br>
+     Yes, S + shall/will <br>
+     No, S + shall/will +  not</p>
+   <p><br>
+       <em>Contoh:</em><br>
+     (+)Rina akan sudah bekerja  di  perusahaan itu minggu depan.<br>
+     Rina will have been working  in  that company next week.</p>
+   <p>(-)Rina   belum bekerja di  perusahaan itu minggu depan.<br>
+     Rina will not have been working in that company next week.</p>
+   <p>(?)Apakah  Rina akan sudah bekerja di perusahaan itu  minggu depan?<br>
+     will   Rina have been working in  that company next week?<br>
+     Yes,  she will<br>
+     No,  she will not</p>
+   <p>&nbsp;</p>
+   <p><strong>Time Signal of Future Perfect Continuous Tense</strong><br>
+     By the end of this year= menjelang akhir th ini<br>
+     By next week…for….. = mnjlang miggu dpn.. selama<br>
+     By…o’clock..for……. = menjelang jam….. selama<br>
+     By this time tomorrow…for… = menjelang saat ini besok……. selama</p>
+   <hr color="#006600">
+   <p>&nbsp;</p>
+ </div>
+ <center>
+ </center>
+ <h3>&nbsp;</h3>
+ <!--** isi content ** -->
+
+</div>
+
+</div>
+ 
+
+<div id="single" style="display:none;">
+
+</div>
+     
+       
+<div id="goback" style="display:none;" ><div class="navigasi"><img src="images/icon-home.png" /></div></div>
+
+
+
+<script>
+
+	$('#homemenu li').click(function(){
+		var hal = $(this).attr('data-hal');
+		
+		$.ajax({url: hal,
+			success: function(data){
+				$("#home").hide();
+				$("#isi").html(data);
+				$("#single").show();
+				$("#goback").show();
+				$("#exit").show();
+				$('body').attr('data-state', '2');
+			}
+		});
+	});
+	
+	$('#goback').click(function(){
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+	});
+	
+	// Back Button
+	function onBackKeyDown(){
+		var dstate = $('body').attr('data-state');
+				
+		if(dstate == '2'){
+			$('body').attr('data-state', '1');
+			$("#single").hide();
+			$("#goback").hide();
+			$("#exit").hide();
+			$("#home").show();			
+		}
+		
+		if(dstate == '1'){
+			exitAppPopup();
+		}
+    }
+	
+	// Exit
+	function exitAppPopup(){
+        navigator.notification.confirm(
+            'Tutup aplikasi?'
+            , function(button){
+                  if(button == 2) {
+                      navigator.app.exitApp();
+                  }
+              }
+            , 'Keluar'
+            , 'Batal,Ya'
+        );  
+        return false;
+    }
+
+	$('body').hammer().on("tap", ".backbtn", function(event){
+		
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		
+		$("#single").hide();
+		$("#goback").hide();
+		$("#exit").hide();
+		$("#home").show();
+		
+		$('body').attr('data-state', '1');
+		
+	});
+
+</script>
+  <center>  <div class="footer"><a href="index.html"><img src="images/icon-home.png" /> </a></div></center>    
+</body>
+</html>
+	
